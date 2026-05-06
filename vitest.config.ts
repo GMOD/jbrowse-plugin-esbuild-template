@@ -1,4 +1,4 @@
-// Unit tests (src/). E2e/puppeteer tests use vitest.config.e2e.ts.
+// Unit tests (test/*.test.tsx). E2e/puppeteer tests use vitest.config.e2e.ts.
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
@@ -7,8 +7,8 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true, // exposes it/expect/describe without imports, matching jest API
-    setupFiles: ['./src/setupTests.ts'],
-    include: ['src/**/*.test.{ts,tsx}'],
+    setupFiles: ['./test/setupTests.ts'],
+    include: ['test/**/*.test.tsx'],
     exclude: ['**/node_modules/**', '**/dist/**'],
   },
 })
