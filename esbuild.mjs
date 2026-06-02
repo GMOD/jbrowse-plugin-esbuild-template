@@ -11,25 +11,22 @@ const PORT = process.env.PORT ? +process.env.PORT : 9000
 // Plugins must reuse the React/MUI/mobx instances JBrowse already loaded via
 // window.JBrowseExports — bundling a second copy causes duplicate-React errors.
 function createGlobalMap(jbrowseGlobals) {
-  const globalMap = {}
-  for (const global of jbrowseGlobals) {
-    globalMap[global] = {
-      varName: `JBrowseExports["${global}"]`,
+  return {
+    ...Object.fromEntries(
+      jbrowseGlobals.map(g => [g, { varName: `JBrowseExports["${g}"]`, type: 'cjs' }]),
+    ),
+    // v4+ package name, but JBrowse exports it as 'mobx-state-tree' for back-compat.
+    '@jbrowse/mobx-state-tree': {
+      varName: `JBrowseExports["mobx-state-tree"]`,
       type: 'cjs',
-    }
+    },
   }
-  // v4+ package name, but JBrowse exports it as 'mobx-state-tree' for back-compat.
-  globalMap['@jbrowse/mobx-state-tree'] = {
-    varName: `JBrowseExports["mobx-state-tree"]`,
-    type: 'cjs',
-  }
-  return globalMap
 }
 
 const rebuildLogPlugin = {
   name: 'rebuild-log',
   setup({ onStart, onEnd }) {
-    let time
+    let time = 0
     onStart(() => {
       time = Date.now()
     })

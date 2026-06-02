@@ -4,7 +4,6 @@
     "target": "es2018",
     "module": "esnext",
     "lib": ["dom", "esnext"],
-    "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
     "rootDir": "./src",
@@ -21,7 +20,8 @@
     "noEmit": false,
     "noUncheckedIndexedAccess": true,
     "allowJs": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "noEmit": false
   },
   "include": ["src"],
   "exclude": ["**/dist/"]
