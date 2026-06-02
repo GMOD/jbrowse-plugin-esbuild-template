@@ -4,7 +4,7 @@ JBrowse 2 plugin template using esbuild, pnpm, vitest, and ESLint flat config.
 
 ## Setup
 
-Requires [pnpm](https://pnpm.io/installation) (`npm install -g pnpm` or `corepack enable pnpm`).
+Requires [pnpm](https://pnpm.io/installation) (`npm install -g pnpm`).
 
 Via GitHub CLI:
 
