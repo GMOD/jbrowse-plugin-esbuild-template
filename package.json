@@ -16,6 +16,7 @@
     "clean": "rimraf dist",
     "format": "pnpm prettier --write .",
     "prebuild": "pnpm clean",
+    "dev": "pnpm start",
     "start": "node esbuild.mjs --watch",
     "build": "tsc && NODE_ENV=production node esbuild.mjs",
     "build:bundle": "NODE_ENV=production node esbuild.mjs",

@@ -35,7 +35,7 @@ The plugin name appears in several places that must all stay in sync:
 ## Development
 
 ```console
-pnpm start  # serves on port 9000 with CORS headers
+pnpm dev  # builds and serves on port 9000 with CORS headers
 ```
 
 Point JBrowse Web at: `http://localhost:3000/?config=http://localhost:9000/config.json`
